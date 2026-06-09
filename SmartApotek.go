@@ -26,8 +26,8 @@ func main() {
 	var dataObat [MAX]Obat
 	var dataTransaksi [MAX]TransaksiStok
 	var nKategori, nObat, nTransaksi int
-	var endApoteker,endKat,endObat bool = false,false,false
-	var endGudang bool = false
+	var endApoteker,endKat,endObat bool
+	var endGudang bool
 	var end bool = false
 	var act int
 
@@ -38,14 +38,15 @@ func main() {
 		fmt.Scan(&act)
 
 		if act == 1 {
+			endApoteker = false
 			for !endApoteker {
 				fmt.Print("\033[H\033[2J")
 				fmt.Printf("========================================\n||         DASHBOARD APOTEKER         ||\n========================================\n")
 				fmt.Printf("[KELOLA MASTER DATA]\n1. Kelola Data Kategori Gejala\n2. Kelola Data Obat\n")
 				fmt.Printf("\n[PENCARIAN & INFORMASI]\n3. Cari Obat\n4. Lihat Laporan Obat & Peringatan\n\n0. Logout\nPilih Menu: ")
 				fmt.Scan(&act)
-
 				if act == 1 {
+					endKat = false
 					for !endKat {
 						fmt.Print("\033[H\033[2J")
 						fmt.Printf("========================================\n||       KELOLA DATA KATEGORI         ||\n========================================\n")
@@ -64,6 +65,7 @@ func main() {
 						}
 					}
 				} else if act == 2 {
+					endObat = false
 					for !endObat {
 						fmt.Print("\033[H\033[2J")
 						fmt.Printf("========================================\n||          KELOLA DATA OBAT          ||\n========================================\n")
@@ -97,6 +99,7 @@ func main() {
 				}
 			}
 		} else if act == 2 {
+			endGudang = false
 			for !endGudang {
 				fmt.Print("\033[H\033[2J")
 				fmt.Printf("========================================\n||       DASHBOARD STAFF GUDANG       ||\n========================================\n")

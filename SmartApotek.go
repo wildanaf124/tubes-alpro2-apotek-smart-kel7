@@ -30,6 +30,7 @@ func main() {
 	var endGudang bool
 	var end bool = false
 	var act int
+	var sortby string
 
 	for !end {
 		fmt.Print("\033[H\033[2J")
@@ -104,13 +105,20 @@ func main() {
 				fmt.Print("\033[H\033[2J")
 				fmt.Printf("========================================\n||       DASHBOARD STAFF GUDANG       ||\n========================================\n")
 				fmt.Printf("[KELOLA INVENTORI]\n1. Catat Stok Masuk\n")
-				fmt.Printf("\n[SORTING & PENGECEKAN]\n2. Urutkan Stok Berdasarkan Kadaluarsa Terdekat\n3. Lihat Daftar Obat Hampir Habis\n\n0. Logout\nPilih Menu: ")
+				fmt.Printf("\n[SORTING & PENGECEKAN]\n2. Urutkan Stok Berdasarkan Tanggal Kadaluarsa\n3. Lihat Daftar Obat Hampir Habis\n\n0. Logout\nPilih Menu: ")
 				fmt.Scan(&act)
 				if act == 1 {
 					inputTransaksi(&dataTransaksi, &nTransaksi, &dataObat, nObat)
 				} else if act == 2 {
-					selectionSortTransaksiByKadaluarsa(&dataTransaksi, nTransaksi)
-					outDaftarStokTransaksi(dataTransaksi, nTransaksi, dataObat, nObat)
+					fmt.Print("Ascending (Terdekat -> Terjauh) / Descending (Terjauh -> Terdekat) ? : ")
+					fmt.Scan(&sortby)
+					if sortby == "Ascending"{
+						selectionSortTransaksiByKadaluarsaAscend(&dataTransaksi, nTransaksi)
+						outDaftarStokTransaksi(dataTransaksi, nTransaksi, dataObat, nObat)
+					} else if sortby == "Descending" {
+						selectionSortTransaksiByKadaluarsaDescend(&dataTransaksi, nTransaksi)
+						outDaftarStokTransaksi(dataTransaksi, nTransaksi, dataObat, nObat)
+					}
 				} else if act == 3 {
 					fmt.Print("\033[H\033[2J")
 					fmt.Print("======================================================\n||               APOTEK-SMART SYSTEM                ||\n======================================================\n")
@@ -188,7 +196,7 @@ func insertionSortObatByNama(K [MAX]Obat, n int) [MAX]Obat { //digunakan di: car
 	}
 	return K
 }
-func selectionSortTransaksiByKadaluarsa(K *[MAX]TransaksiStok, n int) { //digunakan di: Gudang(2)
+func selectionSortTransaksiByKadaluarsaAscend(K *[MAX]TransaksiStok, n int) { //digunakan di: Gudang(2)
 	var i, j, minIdx int
 	var temp TransaksiStok
 	i = 0
@@ -197,6 +205,25 @@ func selectionSortTransaksiByKadaluarsa(K *[MAX]TransaksiStok, n int) { //diguna
 		j = i + 1
 		for j < n {
 			if K[j].TanggalKadaluarsa < K[minIdx].TanggalKadaluarsa {
+				minIdx = j
+			}
+			j++
+		}
+		temp = K[i]
+		K[i] = K[minIdx]
+		K[minIdx] = temp
+		i++
+	}
+}
+func selectionSortTransaksiByKadaluarsaDescend(K *[MAX]TransaksiStok, n int) { //digunakan di: Gudang(2)
+	var i, j, minIdx int
+	var temp TransaksiStok
+	i = 0
+	for i < n-1 {
+		minIdx = i
+		j = i + 1
+		for j < n {
+			if K[j].TanggalKadaluarsa > K[minIdx].TanggalKadaluarsa {
 				minIdx = j
 			}
 			j++

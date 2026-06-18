@@ -1,0 +1,104 @@
+====================================================================
+PANDUAN MEMASUKKAN DATA AWAL (DUMMY DATA) KE DALAM SISTEM
+====================================================================
+
+Agar aplikasi Apotek-Smart tidak kosong saat pertama kali dijalankan, 
+silakan copy seluruh kode data dummy di bawah ini dan paste ke dalam 
+file `SmartApotek.go` atau `main.go`.
+
+LOKASI PASTE:
+1. Cari fungsi `func main()` di dalam kode program.
+2. Cari baris deklarasi variabel di awal fungsi (tepat di bawah `var sortby string`).
+3. Paste kode di bawah ini tepat SEBELUM baris perulangan utama `for !end {`.
+
+======================== COPY MULAI DARI SINI ========================
+
+	//=======================================
+	// DATA DUMMY AWAL SISTEM
+	//=======================================
+
+	// DATA KATEGORI
+	dataKategori[0] = Kategori{"DMM-01", "Demam"}
+	dataKategori[1] = Kategori{"BTK-02", "Batuk"}
+	dataKategori[2] = Kategori{"FLU-03", "Flu"}
+	dataKategori[3] = Kategori{"SKP-04", "Pusing"}
+	dataKategori[4] = Kategori{"ALG-05", "Alergi"}
+	dataKategori[5] = Kategori{"ASM-06", "Asma"}
+	dataKategori[6] = Kategori{"ATB-07", "Antibiotik"}
+	dataKategori[7] = Kategori{"VTM-08", "Vitamin"}
+	dataKategori[8] = Kategori{"SPL-09", "Suplemen"}
+	dataKategori[9] = Kategori{"PCR-10", "Pencernaan"}
+	dataKategori[10] = Kategori{"DIA-11", "Diare"}
+	dataKategori[11] = Kategori{"SBL-12", "Sembelit"}
+	dataKategori[12] = Kategori{"MAG-13", "Maag"}
+	dataKategori[13] = Kategori{"ASL-14", "Lambung"}
+	dataKategori[14] = Kategori{"MTA-15", "Mata"}
+	dataKategori[15] = Kategori{"TLG-16", "Telinga"}
+	dataKategori[16] = Kategori{"HDG-17", "Hidung"}
+	dataKategori[17] = Kategori{"RDG-18", "Radang"}
+	dataKategori[18] = Kategori{"SRW-19", "Sariawan"}
+	dataKategori[19] = Kategori{"GIG-20", "Gigi"}
+	dataKategori[20] = Kategori{"KLT-21", "Kulit"}
+	dataKategori[21] = Kategori{"JRW-22", "Jerawat"}
+	dataKategori[22] = Kategori{"GTL-23", "Gatal"}
+	dataKategori[23] = Kategori{"LKA-24", "Luka"}
+	dataKategori[24] = Kategori{"JMR-25", "Jamur"}
+	nKategori = 25
+
+	// DATA OBAT
+	dataObat[0] = Obat{"OBT-01", "Proris", "DMM-01", "Suhu_Badan_Tinggi", 7}
+	dataObat[1] = Obat{"OBT-02", "OBH", "BTK-02", "Dahak_Kental", 15}
+	dataObat[2] = Obat{"OBT-03", "Ultraflu", "FLU-03", "Hidung_Beringus", 24}
+	dataObat[3] = Obat{"OBT-04", "Panadol", "SKP-04", "Nyeri_Kepala", 10}
+	dataObat[4] = Obat{"OBT-05", "Cetirizine", "ALG-05", "Ruam_Biduran", 30}
+	dataObat[5] = Obat{"OBT-06", "Salbutamol", "ASM-06", "Napas_Berbunyi", 12}
+	dataObat[6] = Obat{"OBT-07", "Amoxicillin", "ATB-07", "Bakteri_Patogen", 50}
+	dataObat[7] = Obat{"OBT-08", "Enervon_C", "VTM-08", "Mudah_Lelah", 45}
+	dataObat[8] = Obat{"OBT-09", "Imboost", "SPL-09", "Pemulihan_Sakit", 20}
+	dataObat[9] = Obat{"OBT-10", "Promag", "PCR-10", "Perut_Begah", 18}
+	dataObat[10] = Obat{"OBT-11", "Diapet", "DIA-11", "BAB_Cair", 25}
+	dataObat[11] = Obat{"OBT-12", "Microlax", "SBL-12", "Tinja_Keras", 8}
+	dataObat[12] = Obat{"OBT-13", "Mylanta", "MAG-13", "Lambung_Perih", 16}
+	dataObat[13] = Obat{"OBT-14", "Polysilane", "ASL-14", "Mual_Muntah", 35}
+	dataObat[14] = Obat{"OBT-15", "Insto", "MTA-15", "Iritasi_Debu", 22}
+	dataObat[15] = Obat{"OBT-16", "Vital_Ear", "TLG-16", "Kotoran_Keras", 14}
+	dataObat[16] = Obat{"OBT-17", "Iliadin", "HDG-17", "Napas_Tersumbat", 28}
+	dataObat[17] = Obat{"OBT-18", "Degirol", "RDG-18", "Sakit_Menelan", 40}
+	dataObat[18] = Obat{"OBT-19", "Aloclair", "SRW-19", "Luka_Bibir", 9}
+	dataObat[19] = Obat{"OBT-20", "Ponstan", "GIG-20", "Gigi_Berlubang", 15}
+	dataObat[20] = Obat{"OBT-21", "Kalpanax", "KLT-21", "Kadas_Kurap", 32}
+	dataObat[21] = Obat{"OBT-22", "Acnol", "JRW-22", "Bintik_Meradang", 11}
+	dataObat[22] = Obat{"OBT-23", "Inerson", "GTL-23", "Gigitan_Serangga", 42}
+	dataObat[23] = Obat{"OBT-24", "Betadine", "LKA-24", "Cegah_Infeksi", 55}
+	dataObat[24] = Obat{"OBT-25", "Daktarin", "JMR-25", "Kutu_Air", 26}
+	nObat = 25
+
+	// DATA TRANSAKSI 
+	dataTransaksi[0] = TransaksiStok{"TRX-01", "OBT-01", 7, "2028-07-05"}
+	dataTransaksi[1] = TransaksiStok{"TRX-02", "OBT-02", 15, "2028-08-12"}
+	dataTransaksi[2] = TransaksiStok{"TRX-03", "OBT-03", 24, "2028-09-18"}
+	dataTransaksi[3] = TransaksiStok{"TRX-04", "OBT-04", 10, "2028-10-22"}
+	dataTransaksi[4] = TransaksiStok{"TRX-05", "OBT-05", 30, "2028-11-05"}
+	dataTransaksi[5] = TransaksiStok{"TRX-06", "OBT-06", 12, "2028-12-10"}
+	dataTransaksi[6] = TransaksiStok{"TRX-07", "OBT-07", 50, "2029-01-15"}
+	dataTransaksi[7] = TransaksiStok{"TRX-08", "OBT-08", 45, "2029-02-20"}
+	dataTransaksi[8] = TransaksiStok{"TRX-09", "OBT-09", 20, "2029-03-25"}
+	dataTransaksi[9] = TransaksiStok{"TRX-10", "OBT-10", 18, "2029-04-30"}
+	dataTransaksi[10] = TransaksiStok{"TRX-11", "OBT-11", 25, "2028-07-14"}
+	dataTransaksi[11] = TransaksiStok{"TRX-12", "OBT-12", 8, "2028-08-19"}
+	dataTransaksi[12] = TransaksiStok{"TRX-13", "OBT-13", 16, "2028-09-24"}
+	dataTransaksi[13] = TransaksiStok{"TRX-14", "OBT-14", 35, "2028-10-28"}
+	dataTransaksi[14] = TransaksiStok{"TRX-15", "OBT-15", 22, "2028-11-11"}
+	dataTransaksi[15] = TransaksiStok{"TRX-16", "OBT-16", 14, "2028-12-16"}
+	dataTransaksi[16] = TransaksiStok{"TRX-17", "OBT-17", 28, "2029-01-21"}
+	dataTransaksi[17] = TransaksiStok{"TRX-18", "OBT-18", 40, "2029-02-26"}
+	dataTransaksi[18] = TransaksiStok{"TRX-19", "OBT-19", 9, "2029-03-03"}
+	dataTransaksi[19] = TransaksiStok{"TRX-20", "OBT-20", 15, "2029-04-08"}
+	dataTransaksi[20] = TransaksiStok{"TRX-21", "OBT-21", 32, "2028-07-25"}
+	dataTransaksi[21] = TransaksiStok{"TRX-22", "OBT-22", 11, "2028-08-30"}
+	dataTransaksi[22] = TransaksiStok{"TRX-23", "OBT-23", 42, "2028-09-05"}
+	dataTransaksi[23] = TransaksiStok{"TRX-24", "OBT-24", 55, "2028-10-10"}
+	dataTransaksi[24] = TransaksiStok{"TRX-25", "OBT-25", 26, "2028-11-15"}
+	nTransaksi = 25
+	
+	//=======================================
